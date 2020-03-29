@@ -23,11 +23,12 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
   public interface OnItemClickListener
   {
-    void onItemClick(int position);
-    void onDeleteClick(int position);
+    void onItemClick (int position);
+
+    void onDeleteClick (int position);
   }
 
-  public void setOnItemClickListener(OnItemClickListener listener)
+  public void setOnItemClickListener (OnItemClickListener listener)
   {
     mListener = listener;
   }
@@ -35,7 +36,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
   /*
   Constructor.
    */
-  public ExampleAdapter(ArrayList<ExampleItem> exampleList)
+  public ExampleAdapter (ArrayList<ExampleItem> exampleList)
   {
     mExampleList = exampleList;
   }
@@ -45,7 +46,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
    */
   @NonNull
   @Override
-  public ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+  public ExampleViewHolder onCreateViewHolder (@NonNull ViewGroup parent, int viewType)
   {
     View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item, parent, false);
     ExampleViewHolder evh = new ExampleViewHolder(v, mListener);
@@ -56,7 +57,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
   This method is called when a ViewHolder is bound.
    */
   @Override
-  public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position)
+  public void onBindViewHolder (@NonNull ExampleViewHolder holder, int position)
   {
     ExampleItem currentItem = mExampleList.get(position);
     holder.mImageView.setImageResource(currentItem.getImageResource());
@@ -68,7 +69,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
   Returns Adapter item count.
    */
   @Override
-  public int getItemCount()
+  public int getItemCount ()
   {
     return mExampleList.size();
   }
@@ -83,7 +84,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     public TextView mTextView2;
     public ImageView mDeleteImage;
 
-    public ExampleViewHolder(@NonNull View itemView, final OnItemClickListener listener)
+    public ExampleViewHolder (@NonNull View itemView, final OnItemClickListener listener)
     {
       super(itemView);
       mImageView = itemView.findViewById(R.id.imageView);
@@ -94,7 +95,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
       itemView.setOnClickListener(new View.OnClickListener()
       {
         @Override
-        public void onClick(View v)
+        public void onClick (View v)
         {
           if (listener != null)
           {
@@ -111,7 +112,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
       {
 
         @Override
-        public void onClick(View v)
+        public void onClick (View v)
         {
           if (listener != null)
           {
